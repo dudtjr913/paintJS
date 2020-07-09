@@ -37,11 +37,19 @@ function mouseMove(event) {
 }
 
 function handleFilling() {
-  if (!filling) {
+  if (filling == false) {
     button.innerText = "Paint";
+    canvas.addEventListener("mousedown", paintingStop);
+    canvas.addEventListener("mouseup", paintingStop);
+    canvas.addEventListener("mouseout", paintingStop);
+    canvas.addEventListener("click", handleClick);
     filling = true;
-  } else {
+  } else if (filling == true) {
     button.innerText = "Fill";
+    canvas.addEventListener("mousemove", mouseMove);
+    canvas.addEventListener("mousedown", paintingStart);
+    canvas.addEventListener("mouseup", paintingStop);
+    canvas.addEventListener("mouseout", paintingStop);
     filling = false;
   }
 }
@@ -68,7 +76,6 @@ if (canvas) {
   canvas.addEventListener("mousedown", paintingStart);
   canvas.addEventListener("mouseup", paintingStop);
   canvas.addEventListener("mouseout", paintingStop);
-  canvas.addEventListener("click", handleClick);
 }
 
 const arrColor = Array.from(color);
