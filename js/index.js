@@ -38,13 +38,13 @@ function mouseMove(event) {
 
 function handleFilling() {
   filling = !filling
-  if (filling == false) {
+  if (filling) {
     button.innerText = "Paint";
     canvas.addEventListener("mousedown", paintingStop);
     canvas.addEventListener("mouseup", paintingStop);
     canvas.addEventListener("mouseout", paintingStop);
     canvas.addEventListener("click", handleClick);
-  } else if (filling == true) {
+  } else if (!filling) {
     button.innerText = "Fill";
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mousedown", paintingStart);
