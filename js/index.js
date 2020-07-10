@@ -37,20 +37,19 @@ function mouseMove(event) {
 }
 
 function handleFilling() {
+  filling = !filling
   if (filling == false) {
     button.innerText = "Paint";
     canvas.addEventListener("mousedown", paintingStop);
     canvas.addEventListener("mouseup", paintingStop);
     canvas.addEventListener("mouseout", paintingStop);
     canvas.addEventListener("click", handleClick);
-    filling = true;
   } else if (filling == true) {
     button.innerText = "Fill";
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mousedown", paintingStart);
     canvas.addEventListener("mouseup", paintingStop);
     canvas.addEventListener("mouseout", paintingStop);
-    filling = false;
   }
 }
 
